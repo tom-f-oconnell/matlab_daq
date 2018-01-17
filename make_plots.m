@@ -11,7 +11,7 @@ for file = files'
     load(file.name);
     fig = plot(data(:,1));
     curr_limits = axis;
-    axis([curr_limits(1), curr_limits(2), 0, 5]);
+    axis([curr_limits(1), curr_limits(2), 0, 0.5]);
     splt = strsplit(file.name, '_');
     png_name = strcat(strjoin(splt(1:3), '_'), '.png');
     % TODO why didn't fig work when gcf does?

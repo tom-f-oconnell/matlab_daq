@@ -2,12 +2,12 @@
 daqreset;
 
 s = daq.createSession('ni'); % create session
-device = 'Dev1';
+device = 'Dev2';
 
 % check Dev1 is in daq.getDevices?
 
 % pid output
-s.addAnalogInputChannel(device, 1:3, 'Voltage');
+s.addAnalogInputChannel(device, 1:2, 'Voltage');
 % all control signals
 
 % digital channels don't seem to support clocked sampling (?)
@@ -17,7 +17,7 @@ for n = 0:(digital_inputs - 1)
     s.addDigitalChannel(device, strcat('port0/line', num2str(n)), 'InputOnly');
 end
 %}
-s.DurationInSeconds = 1000;
+s.DurationInSeconds = 3600 * 16;
 s.Rate = 200; % Hz
 
 % why is there no space included between end of take and number?
