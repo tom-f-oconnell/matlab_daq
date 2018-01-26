@@ -1,3 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This script is for verifying that the stimulus pulse train has the 
+% timing properties you expect.
+%
+% Input:
+% Assumes that a variable "data" is already loaded in to the workspace
+% , and that it contains only the voltage time courses for 0-5 volt logic.
+% data should have size [time_points, number_of_different_logic_channels].
+% We expect the voltage to start and end low.
+%
+% Output:
+% For each channel, duration of each high and low pulse, or a warning
+% saying the channel did not meet the assumptions above.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO print summary information, rather than verbosely printing duration
+% of each pulse. especially if HIGH/LOW pulse lengths don't really deviate
+% (though they might for some experiments)
 
 dv_threshold = 4;
 diffed = diff(data);
